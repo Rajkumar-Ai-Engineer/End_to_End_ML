@@ -8,6 +8,9 @@ __pycache__/
 
 
 Notebooks/
+# Keep artifacts for deployment
+!artifacts/
+!artifacts/*.pkl
 
 # Distribution / packaging
 .Python

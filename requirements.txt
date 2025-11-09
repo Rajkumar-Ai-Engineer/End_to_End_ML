@@ -1,9 +1,8 @@
 scikit-learn
-pandas 
+pandas
 numpy
 dill
 flask
-dataclasses
 matplotlib
 seaborn
 xgboost

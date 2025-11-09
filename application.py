@@ -7,13 +7,13 @@ from sklearn.preprocessing import StandardScaler
 
 application = Flask(__name__)
 
-app = application
 
-@app.route('/')
+
+@application.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/predict',methods=['POST',"GET"])
+@application.route('/predict',methods=['POST',"GET"])
 def predict():
     if request.method == "GET":
         return render_template('index.html')
@@ -34,9 +34,13 @@ def predict():
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
         return render_template('index.html',results=results[0])
-    
+
+@application.route('/health')
+def health():
+    return {'status': 'healthy'}
+
     
 if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=5000,debug=False)
+    application.run(host="0.0.0.0",port=5000,debug=False)
     
     
